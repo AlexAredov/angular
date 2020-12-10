@@ -6,8 +6,5 @@
 <br>
 <input type="number" name="age" [(ngModel)]="age">
 <hr>
-<app-child [userName]="name" [userAge]="age" (onChanged)="onChanged($event)"></app-child>
-<hr>
-<h2>Количество кликов: {{clicks}}</h2>
 
 <router-outlet></router-outlet>
