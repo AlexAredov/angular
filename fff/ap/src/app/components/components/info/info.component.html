@@ -1,0 +1,19 @@
+<div>
+    <form>
+        <input type="text" name="info1" #info1 (input)="isSaved = false">
+        <br>
+        <input type="text" name="info2" #info2 (input)="isSaved = false">
+        <br>
+        <input type="text" name="info3" #info3 (input)="isSaved = false">
+        <br>
+        <button (click)="save(info1.value, info2.value, info3.value)">Сохранить данные</button>
+    </form>
+    <div *ngIf="!isSaved">
+        Внимание!
+        <br>
+        Данные не сохранены!
+    </div>
+</div>
+<div style="margin-top: 40px;">
+    <editor apiKey="p744z8ct85sdlc5u1sxma8egpe8b6heo1b2kmtizt2sbyq3h" plugins="wordcount"></editor>
+</div>
