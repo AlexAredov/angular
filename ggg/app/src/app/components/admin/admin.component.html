@@ -1,0 +1,14 @@
+<div>
+    <form>
+        <input type="text" name="info1" #info1 (input)="isSaved = false" placeholder="{login}">
+        <br>
+        <input type="text" name="info2" #info2 (input)="isSaved = false" placeholder="{password}">
+        <br>
+        <button (click)="save(info1.value, info2.value)">Сохранить данные</button>
+    </form>
+    <div *ngIf="!isSaved">
+        Внимание!
+        <br>
+        Данные не сохранены!
+    </div>
+</div>

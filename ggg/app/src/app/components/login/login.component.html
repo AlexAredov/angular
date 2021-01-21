@@ -1,0 +1,9 @@
+<div>
+    <form>
+        <input type="text" name="login" #login placeholder="user login">
+        <br>
+        <input type="text" name="password" #password placeholder="user password">
+        <br>
+        <button (click)="logIn(login.value, password.value)">Войти</button>
+    </form>
+</div>

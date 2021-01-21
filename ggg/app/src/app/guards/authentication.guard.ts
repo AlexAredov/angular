@@ -14,20 +14,13 @@ export class AuthenticationGuard implements CanActivate {
         if (!this.authenticationServive.isUserLogged()) {
             // Просто показывать сообщение пользователю о том, что ему надо войти
             alert("У вас нет прав для перехода. Необходимо: войти")
-
-            // Перекидывать пользователя на страницу со входом и сообщение почему он был туда перенаправлен
-            this.router.navigate(["login"], {queryParams: {
-                msg: "У вас нет прав для перехода. Необходимо: войти",
-                returnUrl: route.url
-            }});
             return false;
-        } else if (!this.authenticationServive.isUserAdmin()) {
-            this.router.navigate(["login"], {queryParams: {
-                msg: "У вас нет прав для перехода. Необходимо: иметь роль администратора",
-                returnUrl: route.url
-            }});
+        } 
+        else if (!this.authenticationServive.isUserAdmin() && ! this.authenticationServive.isUserUser()) {
+            alert("У вас нет прав для перехода. Необходимо: иметь роль администратора")
             return false;
-        } else {
+        } 
+        else {
             return true;
         }
     }
