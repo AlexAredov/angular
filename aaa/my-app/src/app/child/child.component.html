@@ -1,8 +1,0 @@
-<p>Добро пожаловать из child-component, {{ name }}</p>
-<p>Имя пользователя:  {{userName}}</p>
-<p>Возраст пользователя:  {{userAge}}</p>
-<hr>
-<button (click)="change(true)">+</button>
-<button (click)="change(false)">-</button>
-<hr>
-<input [ngModel]="userName" (ngModelChange)="onNameChange($event)" />
