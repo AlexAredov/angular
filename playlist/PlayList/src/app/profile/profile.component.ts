@@ -13,25 +13,29 @@ export class ProfileComponent {
   arr: string[] = ["Nothing is here :(", " ", " ", " ", " ", " ", " ", " ", " ", " "];
   list1!: string;
   arr1: string[] = ["", "", "", "", "", "", "", "", "", ""];
-  
-  constructor() { 
-    this.list = JSON.stringify(localStorage.getItem(this.login + "1")).replace(/"/g, '');
-    var j = 0;
-    if(localStorage.getItem(this.login + "1") != null){
-      for (var i = 0; i < this.list.length; i++){
-        if (this.list[i] == " "){
-          j++;
-          if (j >= 10){
-            break;
+
+  constructor() {
+    if (localStorage.getItem(this.login) == null){
+      location.replace('/signin')
+    }
+    else {
+      this.list = JSON.stringify(localStorage.getItem(this.login + "1")).replace(/"/g, '');
+      var j = 0;
+      if(localStorage.getItem(this.login + "1") != null){
+        for (var i = 0; i < this.list.length; i++){
+          if (this.list[i] == " "){
+            j++;
+            if (j >= 10){
+              break;
+            }
+            continue;
           }
-          continue;
-        }
-        else{
-          this.arr[j] = this.arr[j] + this.list[i];
+          else{
+            this.arr[j] = this.arr[j] + this.list[i];
+          }
         }
       }
     }
-
   }
 
 
@@ -81,5 +85,9 @@ export class ProfileComponent {
         }
       }
     }
+  }
+  exit (){
+    localStorage.removeItem('login'),
+    location.replace('/')
   }
 }
