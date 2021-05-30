@@ -1,0 +1,114 @@
+.input{
+    background-color: black; 
+    color: #777; 
+    border: none; 
+    border-bottom: 2px solid red; 
+    width: 20%; height: 70px;
+    font-size: 70%;
+    
+}
+.input:focus { 
+    outline: none;
+}
+.input:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+.button{
+    background-color: #161616;
+    border: none;
+    color: #777;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+}
+.button:focus { 
+    outline : none;
+}
+H1 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: center; 
+    font-size: 200px;
+    text-shadow: 0px 0px 0px rgb(59, 0, 0), 0 0 100cm red;
+    color: #d94f5c;
+    font-weight: bold;
+}
+H4 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: center; 
+    font-size: 140px;
+    text-shadow: 0px 0px 0px rgb(59, 0, 0), 0 0 50cm red;
+    color: #d94f5c;
+    font-weight: bold;
+}
+.defolt{
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: #777;
+    text-align: center;
+    font-size: 200%;
+}
+.content {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: #777;
+    text-align: center;
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Tahoma", sans-serif;
+    line-height: 25px;
+    color: #164a44;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tasks__title {
+    margin: 50px 0 20px 0;
+    
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .tasks__list {
+    margin: 0;
+    padding: 0;
+    
+    list-style: none;
+  }
+  
+  .tasks__item {
+    font-size: 20px;
+    max-width: 500px;
+    margin-bottom: 10px;
+    padding: 5px;
+    
+    text-align: center;
+    border: 0px dashed #d94f5c;
+    border-radius: 5px;
+    cursor: move;
+    background-color: #d94f5c;
+  
+    transition: background-color 0.5s;
+  }
+  
+  .tasks__item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .selected {
+    opacity: 0.6;
+  }
+  
