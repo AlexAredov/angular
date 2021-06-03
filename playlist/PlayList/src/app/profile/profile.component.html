@@ -37,40 +37,37 @@ Profile
 <br>
 <br>
 <h4 class="H4">Hi {{login}}</h4>
-<br>
-<br>
-<br>
-
-<div class="container">
-    <section class="tasks">
-        <ul class="tasks__list">
-            <li class="tasks__item">learn HTML</li>
-            <li class="tasks__item">learn CSS</li>
-            <li class="tasks__item">learn JavaScript</li>
-            <li class="tasks__item">learn PHP</li>
-            <li class="tasks__item">stay alive</li>
-        </ul>
-    </section>
-</div>
-
+<center>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let movie of movies" cdkDrag>
+          <a href="#" class="l">
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+            {{movie}}
+            
+          </a>
+          <a onclick="close()" class="f"></a>
+        </div>
+        
+      </div>
+</center>
 
 <form style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
     Song name:
-    <input type="text" [(ngModel)]="sname" name="sname" placeholder="For exemple: Numb" autocomplete="off" class="input">
-    <button (click)="g()" type="button" name="sen1" class="button">New Song</button>
+    <input type="text" [(ngModel)]="sname" name="sname" placeholder="For exemple: Numb" autocomplete="off" class="input" [(ngModel)]="filterTerm">
+    <button (click)="g()" type="button" name="sen1" class="button">Add</button>
 </form>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div>
-    <p class="defolt" *ngFor="let h of arr">{{h}}<br></p>
+<div style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+  <ul *ngFor="let user of userRecords | filter:filterTerm">
+    <a (click)="gk(user.name)">{{user.name}}</a>
+  </ul>
 </div>
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -102,4 +99,3 @@ Profile
 <br>
 <br>
 <br>
-<script src="main.js"></script>

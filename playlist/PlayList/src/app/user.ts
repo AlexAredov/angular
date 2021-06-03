@@ -30,4 +30,11 @@ export class User {
     public set Password(n: string) {
         this.password = n;
     }
+
+    public get Songs(): string {
+        return this.password;
+    }
+    public set Songs(n: string) {
+        this.password = n;
+    }
 }

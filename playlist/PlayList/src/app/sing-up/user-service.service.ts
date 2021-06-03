@@ -11,8 +11,8 @@ export class UserServiceService {
   private usersUrladd: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/full';
-    this.usersUrladd = 'http://localhost:8080/add';
+    this.usersUrl = 'http://192.168.1.74:8080/full';
+    this.usersUrladd = 'http://192.168.1.74:8080/add';
   }
 
   public findAll(): Observable<String[]> {
