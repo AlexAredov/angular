@@ -37,29 +37,67 @@ Profile
 <br>
 <br>
 <h4 class="H4">Hi {{login}}</h4>
+
+<div class="container">
+	
+	<h2>Your music service:</h2>
+	
+  <ul >
+  <li>
+    <input (click)="mms('apple')" type="radio" id="apple" name="selector">
+    <label for="apple">Apple Music</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+  
+  <li>
+    <input (click)="mms('spotify')" type="radio" id="spotify" name="selector">
+    <label for="spotify">Spotify</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+  
+  <li>
+    <input (click)="mms('vk')" type="radio" id="vk" name="selector">
+    <label for="vk">Vk</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+    <input (click)="mms('yandex')" type="radio" id="yandex" name="selector">
+    <label for="yandex">Yandex.music</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+</ul>
+</div>
+
 <center>
-    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div  cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let movie of movies" cdkDrag>
-          <a href="#" class="l">
+          <a (click)="link(movie)" class="l">
             <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
             {{movie}}
-            
           </a>
-          <a onclick="close()" class="f"></a>
+          <a (click)="close(movie)" class="f"></a>
         </div>
         
-      </div>
+    </div>
 </center>
 
 <form style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
     Song name:
-    <input type="text" [(ngModel)]="sname" name="sname" placeholder="For exemple: Numb" autocomplete="off" class="input" [(ngModel)]="filterTerm">
+    <input type="text" [(ngModel)]="sname" (ngModelChange)="saverange()" name="sname" placeholder="For exemple: Numb" autocomplete="off" class="input" [(ngModel)]="filterTerm">
     <button (click)="g()" type="button" name="sen1" class="button">Add</button>
 </form>
 <div style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
-  <ul *ngFor="let user of userRecords | filter:filterTerm">
-    <a (click)="gk(user.name)">{{user.name}}</a>
-  </ul>
+  <div *ngIf="bbb">
+    <ul *ngFor="let user of userRecords | filter:filterTerm">
+      <a (click)="gk(user.name)">{{user.name}}</a>
+    </ul>
+    <a (click)="jk()">+ add new song</a>
+  </div>
 </div>
 
 
@@ -77,18 +115,14 @@ Profile
 <br>
 <br>
 
-<form style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
-    Friend name:
-    <input type="text" [(ngModel)]="fname" name="fname" placeholder="friend's name" autocomplete="off" class="input">
-    <button (click)="gf()" type="button" name="sen1" class="button">search</button>
-</form>
+<h4 class="H4">Top 5</h4>
 
-<br>
-<br>
-<br>
-<br>
-
-<p class="defolt" *ngFor="let h1 of arr1">{{h1}}<br></p>
+<div  style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+    <ul class="block" *ngFor="let user of songs">
+      <span class="icon" (click)="link(user)">{{user}}</span>
+      <span class="text">icon</span>
+    </ul>
+</div>
 
 <br>
 <br>

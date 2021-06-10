@@ -16,7 +16,12 @@ export class SingInComponent {
   check(){
     this.user = new User(this.login, "", this.password);
     this.userService.check(this.login).subscribe(data => {
-      if (CryptoJS.MD5(this.user.password).toString().replace("0", '') == data.password){
+      var ss = CryptoJS.MD5(this.user.password).toString();
+      while(ss.search("0") != -1){
+        ss = ss.replace("0", '');
+      }
+
+      if (ss == data.password){
         localStorage.setItem(this.login, "in");
         localStorage.setItem("login", this.login);
         location.replace("\profile");
@@ -24,7 +29,9 @@ export class SingInComponent {
       else{
 
       }
-      //console.log(data.password);
+      console.log(data.password);
+      console.log(ss);
+
     });
   }
 

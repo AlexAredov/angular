@@ -11,8 +11,8 @@ export class UserServiceService {
   private usersUrlch: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://192.168.1.74:8080/full';
-    this.usersUrlch = 'http://192.168.1.74:8080/check';
+    this.usersUrl = 'https://playlist-ad.herokuapp.com/full';
+    this.usersUrlch = 'https://playlist-ad.herokuapp.com/check';
   }
 
   public findAll(): Observable<String[]> {
