@@ -11,16 +11,16 @@ export class UserServiceService {
   private usersUrladd: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://192.168.1.74:8080/full';
-    this.usersUrladd = 'http://192.168.1.74:8080/add';
+    this.usersUrl = 'https://playlist-ad.herokuapp.com/full';
+    this.usersUrladd = 'https://playlist-ad.herokuapp.com/add';
   }
 
   public findAll(): Observable<String[]> {
     return this.http.get<String[]>(this.usersUrl);
   }
 
-  public add(user: User) {
-    const usr = {name: user.Name, email: user.Email, password: user.Password};
-    this.http.post(this.usersUrladd, usr).subscribe(value => usr);
+  public add(user: string) {
+    //const usr = {name: user.Name, email: user.Email, password: user.Password};
+    this.http.post(this.usersUrladd, user).subscribe(value => user);
   }
 }

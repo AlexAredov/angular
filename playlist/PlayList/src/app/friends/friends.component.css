@@ -1,0 +1,37 @@
+H1 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: center; 
+    font-size: 200px;
+    text-shadow: 0px 0px 0px rgb(59, 0, 0), 0 0 100cm red;
+    color: #d94f5c;
+    font-weight: bold;
+  }
+
+  .input{
+    background-color: black; 
+    color: #777; 
+    border: none; 
+    border-bottom: 2px solid #d94f5c; 
+    width: 20%; height: 70px;
+    font-size: 70%;
+    
+  }
+  .input:focus { 
+    outline: none;
+  }
+  .input:focus::-webkit-input-placeholder {
+    color: transparent
+  }
+  .button{
+    background-color: #161616;
+    border: none;
+    color: #777;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+  }
+  .button:focus { 
+    outline : none;
+  }

@@ -21,21 +21,70 @@ export class ProfileComponent {
   arr1: string[] = ["", "", "", "", "", "", "", "", "", ""];
   movies = [""];
   songs = [""];
+  mi = [""];
   userRecords = [{}]
   bbb = false;
   ms!: string;
 
+  elementType: 'url' | 'canvas' | 'img' = 'url';
+
+  value: string = 'https://music.apple.com/ru/album/believer/1411625594?i=1411628233&l=en';
+
+  url = "";
+
+  myArray = [""];
+
+  arrr!: string[];
+
+  myArray1 = [{}];
 
 
   constructor(private userService: UserServiceService, private router: Router) {
 
+    this.arrr = [""];
+
     this.userService.topsongs().subscribe(data => {
       this.songs = data;
-      console.log(this.songs)
+      this.lin(this.songs[0])
+      this.lin(this.songs[1])
+      this.lin(this.songs[2])
+      this.lin(this.songs[3])
+      this.lin(this.songs[4])
+
+      for (var a = 0; a < this.songs.length; a++){
+        this.myArray.push(this.songs[a]);
+      }
+
+      console.log(this.myArray)
     })
+
+
+    setTimeout(() => {
+      this.myArray1.push({"name": this.myArray[1], "url": this.arrr[1]})
+      this.myArray1.push({"name": this.myArray[2], "url": this.arrr[2]})
+      this.myArray1.push({"name": this.myArray[3], "url": this.arrr[3]})
+      this.myArray1.push({"name": this.myArray[4], "url": this.arrr[4]})
+      this.myArray1.push({"name": this.myArray[5], "url": this.arrr[5]})
+
+      console.log(this.myArray1)
+    }, 2000);
+
+    let min = ["Ukelele", "Bangos", "Harmonica", "Bass Guitar", "Drums", "Piano", "Xylophone", "Kalimba", "Clarinet", "Trombone", "Guitar", "Saxophone", "Steel Tongue Drum", "Flute", "Theremin", "Harp", "Cello", "Magix Music Maker", "Image-Line FL Studio 20", "Native Instruments Maschine 2 MK3", "Propellerheads Reason+"];
+
+
+    this.userService.miget(this.login).subscribe(data => {
+      var v = data.password;
+      let arrayOfStrings = v.split(", ");
+      console.log(arrayOfStrings)
+      for (var a = 0; a < arrayOfStrings.length; a++){
+        this.mi.push(min[parseInt(arrayOfStrings[a]) - 1])
+      }
+      console.log(this.mi)
+    });
 
     this.userService.songs(this.login).subscribe(data => {
       //console.log(data);
+      this.movies.pop()
       var s = data.password.replace("\"", "");
       s = s.replace("\"", "");
       this.movies = s.split(", ");
@@ -46,8 +95,6 @@ export class ProfileComponent {
       for (var a = 0; a < data.length; a++){
         this.userRecords.push({"name": data[a]})
       }
-      
-      //this.userRecords = JSON.parse(data.toString());
     });
 
     this.userService.service(this.login).subscribe(data => {
@@ -83,6 +130,10 @@ export class ProfileComponent {
     //console.log(this.ms);
   }
 
+  ng(){
+    location.replace("\musical-instruments");
+  }
+
   saverange() {
     if (this.sname == ""){
       this.bbb = false;
@@ -90,7 +141,7 @@ export class ProfileComponent {
     else{
       this.bbb = true;
     }
-  } 
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     let m = [];
@@ -145,7 +196,13 @@ export class ProfileComponent {
   }
 
   jk(){
-
+    console.log(this.sname);
+    this.userService.adds(this.sname);
+    this.userService.allsongs().subscribe(data => {
+      for (var a = 0; a < data.length; a++){
+        this.userRecords.push({"name": data[a]})
+      }
+    });
   }
 
   link(srt:string){
@@ -188,11 +245,42 @@ export class ProfileComponent {
         });
       }
     });
-    //if (this.ms == "spotify"){
+  }
 
-    //}
 
-    //location.replace(l);
+
+  lin(srt:string){
+    var l = "https://www.google.com/";
+    this.userService.service(this.login).subscribe(data => {
+      if (data.password == "apple"){
+        this.userService.apple(srt).subscribe(data => {
+          l = data[0];
+          console.log(l);
+          this.arrr.push(l)
+        });
+      }
+      else if(data.password == "spotify"){
+        this.userService.spotify(srt).subscribe(data => {
+          l = data[0];
+          console.log(l);
+          this.arrr.push(l)
+        });
+      }
+      else if(data.password == "vk"){
+        this.userService.vk(srt).subscribe(data => {
+          l = data[0];
+          console.log(l);
+          this.arrr.push(l)
+        });
+      }
+      else if(data.password == "yandex"){
+        this.userService.yandex(srt).subscribe(data => {
+          l = data[0];
+          console.log(l);
+          this.arrr.push(l)
+        });
+      }
+    });
   }
 
 
@@ -207,6 +295,13 @@ export class ProfileComponent {
     else{
 
       this.movies.push(this.sname);
+      if (this.movies.length == 1){
+        this.userService.top(this.movies[0]).subscribe(data => {
+          var n = parseInt(data.password);
+          n++;
+          this.userService.top1(this.movies[0], n.toString())
+        });
+      }
 
       console.log(this.movies);
       this.userService.addsongs(this.movies, this.login);

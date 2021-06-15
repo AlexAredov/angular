@@ -12,6 +12,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { MusicalInstrumentsComponent } from './musical-instruments/musical-instruments.component';
+import { FriendsComponent } from './friends/friends.component';
+import { FprofileComponent } from './fprofile/fprofile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     SingUpComponent,
     SingInComponent,
     NotFoundComponent,
-    ProfileComponent
+    ProfileComponent,
+    MusicalInstrumentsComponent,
+    FriendsComponent,
+    FprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     HttpClientModule,
     DragDropModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

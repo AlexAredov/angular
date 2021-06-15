@@ -1,0 +1,46 @@
+<h4 class="H4">{{order}}</h4>
+<center>
+    <button (click)="cl()" type="button" class="button">{{text}}</button>
+</center>
+
+<div style="color: #d94f5c; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+    <p>Musical Instruments:</p>
+    <div  style="color: #777; text-align: center; font-family: Geneva, Arial, Helvetica, sans-serif;">
+        <div *ngFor="let user of MI">
+            {{user}}
+        </div>
+    </div>
+</div>
+<br>
+<div style="color: #d94f5c; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+    <p>Songs:</p>
+    <div  style="color: #777; text-align: center; font-family: Geneva, Arial, Helvetica, sans-serif;">
+        <ul class="block" *ngFor="let user of myArray1">
+          <div>
+            <span class="icon">{{user.name}}</span>
+            <ngx-qrcode (click)="link(user.name)" class="text" [value] = "user.url"></ngx-qrcode>
+          </div>
+        </ul>
+    </div>
+</div>
+<br>
+<div style="color: #d94f5c; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+    <p>Friends:</p>
+    <div  style="color: #777; text-align: center; font-family: Geneva, Arial, Helvetica, sans-serif;">
+        <div (click)="k(user)" *ngFor="let user of friend">
+            {{user}}
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

@@ -38,9 +38,28 @@ Profile
 <br>
 <h4 class="H4">Hi {{login}}</h4>
 
+<div style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+  <p>Your musical instruments:</p>
+  <div *ngFor="let m of mi">
+    <p>{{m}}</p>
+  </div>
+  
+  <button (click)="ng()" type="button" name="sen1" class="button">Change</button>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <div class="container">
-	
-	<h2>Your music service:</h2>
+  <div style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+    <p>Your music service:</p>
+  </div>
 	
   <ul >
   <li>
@@ -59,7 +78,7 @@ Profile
   
   <li>
     <input (click)="mms('vk')" type="radio" id="vk" name="selector">
-    <label for="vk">Vk</label>
+    <label for="vk">VK</label>
     
     <div class="check"><div class="inside"></div></div>
   </li>
@@ -73,7 +92,19 @@ Profile
 </ul>
 </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <center>
+  <div style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+    <p>Your songs:</p>
+  </div>
     <div  cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let movie of movies" cdkDrag>
           <a (click)="link(movie)" class="l">
@@ -118,9 +149,11 @@ Profile
 <h4 class="H4">Top 5</h4>
 
 <div  style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
-    <ul class="block" *ngFor="let user of songs">
-      <span class="icon" (click)="link(user)">{{user}}</span>
-      <span class="text">icon</span>
+    <ul class="block" *ngFor="let user of myArray1">
+      <div >
+        <span class="icon">{{user.name}}</span>
+        <ngx-qrcode (click)="link(user.name)" class="text" [value] = "user.url"></ngx-qrcode>
+      </div>
     </ul>
 </div>
 
@@ -128,7 +161,10 @@ Profile
 <br>
 <br>
 <br>
-<button (click)="exit()" type="button" class="button">Exit</button>
+<center>
+  <button (click)="exit()" type="button" class="button" style="font-size: 22px;">Exit</button>
+</center>
+
 <br>
 <br>
 <br>

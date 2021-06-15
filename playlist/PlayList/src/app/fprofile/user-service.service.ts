@@ -20,7 +20,8 @@ export class UserServiceService {
   private Top1: string;
   private TopSongs: string;
   private MI: string;
-  private AddS: string;
+  private Friends: string;
+  private AddFr: string;
 
   constructor(private http: HttpClient) {
     this.usersUrl = 'https://playlist-ad.herokuapp.com/full';
@@ -36,7 +37,8 @@ export class UserServiceService {
     this.Top1 = 'https://playlist-ad.herokuapp.com/top1';
     this.TopSongs = 'https://playlist-ad.herokuapp.com/topsongs';
     this.MI = 'https://playlist-ad.herokuapp.com/miget';
-    this.AddS = 'https://playlist-ad.herokuapp.com/adsng';
+    this.Friends = 'https://playlist-ad.herokuapp.com/friends';
+    this.AddFr = 'https://playlist-ad.herokuapp.com/fr';
   }
 
   public findAll(): Observable<String[]> {
@@ -46,19 +48,6 @@ export class UserServiceService {
   public songs(login: String): Observable<User> {
     var url = this.usersUrlch + "/" + login;
     return this.http.get<User>(url);
-  }
-
-  public allsongs() : Observable<string[]>{
-    return this.http.get<string[]>(this.usersUrlch);
-  }
-
-  public addsongs(arr: String[], login: String) {
-    var url = this.usersUrladd + "/" + login;
-    var songs = arr[0];
-    for (var i = 1; i < arr.length; i++){
-      songs = songs + ", " + arr[i];
-    }
-    this.http.post(url, songs).subscribe(value => songs);
   }
 
   public serves(login: String, service: String) {
@@ -105,7 +94,17 @@ export class UserServiceService {
     return this.http.get<User>(url);
   }
 
-  public adds(name: String) {
-    this.http.post(this.AddS, name).subscribe(value => name);
+  public friends(login: String): Observable<User> {
+    var url = this.Friends + "/" + login;
+    return this.http.get<User>(url);
+  }
+
+  public addfriend(arr: String[], login: String) {
+    var url = this.AddFr + "/" + login;
+    var songs = arr[0];
+    for (var i = 1; i < arr.length; i++){
+      songs = songs + ", " + arr[i];
+    }
+    this.http.post(url, songs).subscribe(value => songs);
   }
 }

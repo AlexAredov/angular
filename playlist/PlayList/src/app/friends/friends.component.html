@@ -1,0 +1,68 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="H1">
+Friends
+</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+  <p>Your friends:</p>
+  <div (click)="gk(user)" *ngFor="let user of friend">
+    {{user}}
+</div>
+</div>
+<br>
+<br>
+<div style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+    <p>Find new friends</p>
+</div>
+
+<form style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+    Friend name:
+    <input type="text" [(ngModel)]="sname" (ngModelChange)="saverange()" name="sname" placeholder="For exemple: alex" autocomplete="off" class="input" [(ngModel)]="filterTerm">
+</form>
+<div style="color: #777; text-align: center; font-size: 200%; font-family: Geneva, Arial, Helvetica, sans-serif;">
+  <div *ngIf="bbb">
+    <ul *ngFor="let user of userRecords | filter:filterTerm">
+    <a (click)="gk(user.name)">{{user.name}}</a>
+    </ul>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
