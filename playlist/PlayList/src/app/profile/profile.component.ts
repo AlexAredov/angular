@@ -69,7 +69,29 @@ export class ProfileComponent {
       console.log(this.myArray1)
     }, 2000);
 
-    let min = ["Ukelele", "Bangos", "Harmonica", "Bass Guitar", "Drums", "Piano", "Xylophone", "Kalimba", "Clarinet", "Trombone", "Guitar", "Saxophone", "Steel Tongue Drum", "Flute", "Theremin", "Harp", "Cello", "Magix Music Maker", "Image-Line FL Studio 20", "Native Instruments Maschine 2 MK3", "Propellerheads Reason+"];
+    let min = [
+    "Ukelele", //1
+    "Bangos",  //2
+    "Harmonica", //3
+    "Bass Guitar", //4
+    "Drums", //5
+    "Piano", //6
+    "Xylophone", //7 
+    "Kalimba", //8
+    "Clarinet", //9
+    "Trombone", //10
+    "Guitar", //11
+    "Saxophone", //12
+    "Steel Tongue Drum", //13 
+    "Flute", //14
+    "Theremin", //15
+    "Harp", //16
+    "Cello", //17
+    "Magix Music Maker", //18 
+    "Image-Line FL Studio 20", //19 
+    "Native Instruments Maschine 2 MK3", //20 
+    "Propellerheads Reason+" //21
+  ];
 
 
     this.userService.miget(this.login).subscribe(data => {
